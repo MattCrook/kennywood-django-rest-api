@@ -10,8 +10,8 @@ const MyItinerary = (props) => {
   const [currentItinerary, setCurrentItinerary] = useState({});
 
   const getItems = () => {
-    // Fetch the data from localhost:8000/itineraryitems
-    fetch("http://localhost:8000/itineraryitems", {
+    // Fetch the data from localhost:8000/itinerary
+    fetch("http://localhost:8000/itinerary", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -28,7 +28,7 @@ const MyItinerary = (props) => {
   };
 
   const deleteItem = (item) => {
-    fetch(`http://localhost:8000/itineraryitems/${item.id}`, {
+    fetch(`http://localhost:8000/itinerary/${item.id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Token ${localStorage.getItem("kennywood_token")}`,
@@ -55,7 +55,7 @@ const MyItinerary = (props) => {
   }, []);
 
   const updateItineraryItem = (starttime) => {
-    fetch(`http://localhost:8000/itineraryitems/${currentItinerary.id}`, {
+    fetch(`http://localhost:8000/itinerary/${currentItinerary.id}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",

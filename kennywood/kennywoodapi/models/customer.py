@@ -4,14 +4,23 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-
 class Customer(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     family_members = models.IntegerField()
 
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
     class Meta:
         ordering = (F('user.date_joined').asc(nulls_last=True),)
 
-    def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+# @receiver(post_save, sender=User)
+# def create_customer(sender, instance, created, **kwargs):
+#     if created:
+#         Customer.objects.create(user=instance)
+
+
+# @receiver(post_save, sender=User)
+# def save_customer(sender, instance, **kwargs):
+#     instance.customer.save()

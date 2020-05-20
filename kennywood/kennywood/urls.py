@@ -18,13 +18,15 @@ from django.urls import include, path
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 from kennywoodapi.models import *
-from kennywoodapi.views import ParkAreas
+from kennywoodapi.views import ParkAreas, Attractions, ItineraryItems
 from kennywoodapi.views import register_user, login_user
 
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'parkareas', ParkAreas, 'parkarea')
+router.register(r'attractions', Attractions, 'attraction')
+router.register(r'itinerary', ItineraryItems, 'itinerary')
 
 
 

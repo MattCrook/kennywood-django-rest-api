@@ -64,7 +64,7 @@ const ApplicationViews = () => {
       />
 
       <Route
-        path="/myitinerary"
+        path="/itinerary"
         render={(props) => {
           return <MyItinerary />;
         }}

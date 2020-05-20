@@ -1,3 +1,4 @@
+
 from django.db import models
 from .parkarea import ParkArea
 
@@ -5,7 +6,7 @@ from .parkarea import ParkArea
 class Attraction(models.Model):
 
     name = models.CharField(max_length=50)
-    area = models.ForeignKey(ParkArea, on_delete=models.DO_NOTHING)
+    area = models.ForeignKey(ParkArea, related_name="attractions", on_delete=models.DO_NOTHING)
 
     class Meta:
         ordering = ("area",)

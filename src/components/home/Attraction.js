@@ -16,7 +16,7 @@ const Attraction = (props) => {
   };
 
   const addToItinerary = () => {
-    fetch("http://localhost:8000/itineraryitems", {
+    fetch("http://localhost:8000/itinerary", {
       method: "POST",
       headers: {
         Accept: "application/json",
